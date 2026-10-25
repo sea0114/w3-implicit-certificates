@@ -1,0 +1,567 @@
+{
+  "task": "W3-OKA-IMPL",
+  "scope": "targeted finite functional and boundary acceptance",
+  "synthetic_fixtures_only": true,
+  "known_setup_b_fixture": 7,
+  "benchmark_executed": false,
+  "historical_PS_Waters_Schnorr_checks_executed": false,
+  "does_not_establish": [
+    "fair random bits",
+    "uniform BGen",
+    "setup secrecy",
+    "secure erasure",
+    "bit-time clock",
+    "ROM instantiation",
+    "full security games",
+    "new core theorem",
+    "signature composition",
+    "cross-context protocol security"
+  ],
+  "configs": [
+    "BLSG1-REP/ECQV",
+    "BLSG1-REP/PV"
+  ],
+  "checks": [
+    {
+      "id": "OKA-SETUP",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "setup_rejected_blocks": [
+          "0",
+          "q",
+          "2^width-1"
+        ],
+        "accepted_test_b": 7,
+        "b1_accepted": true,
+        "returned_values": [
+          "public instance"
+        ],
+        "public_import_checks_only_support": true,
+        "does_not_test_secrecy_or_fairness": true,
+        "no_secure_erasure_claim": true
+      }
+    },
+    {
+      "id": "OKA-PAIR-CODEC",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "accepted_pairs": [
+          "(0,0)",
+          "(0,q-1)",
+          "(q-1,0)",
+          "(q-1,q-1)",
+          "(1,2)"
+        ],
+        "secret_bytes": 64,
+        "invalid_pair_classes": 12,
+        "invalid_wire_classes": 6,
+        "both_coordinates_validated_without_input_reduction": true
+      }
+    },
+    {
+      "id": "OKA-POINT-CODEC",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "finite_and_identity_bytes": 48,
+        "rejected_classes": [
+          "empty",
+          "trailing",
+          "truncated",
+          "mutable",
+          "missing-compression",
+          "identity-sign",
+          "identity-payload",
+          "on-curve-nonsubgroup"
+        ],
+        "subgroup_test": "qP=O; no cofactor clearing"
+      }
+    },
+    {
+      "id": "OKA-FRAME",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "rejected_classes": [
+          "wrong-prefix",
+          "version",
+          "request-role",
+          "width47",
+          "width49",
+          "nonminimal-width",
+          "unterminated-width",
+          "id-tag",
+          "nonminimal-id-length",
+          "unterminated-id-length",
+          "id-length",
+          "id-padding",
+          "trailing",
+          "truncated",
+          "mutable",
+          "empty"
+        ],
+        "13_bit_ID_roundtrip": true,
+        "shared_frame_for_both_modes": true,
+        "context_external_to_frame": [
+          "h",
+          "CA",
+          "mode",
+          "hash"
+        ]
+      }
+    },
+    {
+      "id": "OKA-SIZE",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "id_bits": 128,
+        "certificate_bytes": 75,
+        "request_bytes": 75,
+        "response_bytes": 64,
+        "secret_bytes": 64,
+        "public_key_bytes": 48,
+        "certificate_plus_response_bytes": 139,
+        "additional_shared_h_bytes": 48,
+        "full_pp_transport_encoding_defined": false,
+        "runtime_comparison": false
+      }
+    },
+    {
+      "id": "OKA-RO-COMMIT",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "invalid_draw_values": 7,
+        "validate_before_commit": true,
+        "program_fresh_is_proof_harness_only": true
+      }
+    },
+    {
+      "id": "OKA-HASH-BITS",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "bytes_alias_byte_aligned_BitID": true,
+        "nonbyte_lengths_distinct": [
+          1,
+          2
+        ],
+        "fixed_hash_domains": [
+          "W3-Hcert-v1",
+          "W3-Hcert-bits-v1"
+        ]
+      }
+    },
+    {
+      "id": "OKA-HASH-CONTEXT",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "foreign_h_hash_rejected": true,
+        "scalar_hash_rejected": true,
+        "custom_metadata_fields_checked": [
+          "q",
+          "profile",
+          "domain",
+          "h_raw",
+          "lam"
+        ],
+        "custom_description_required": true,
+        "custom_cannot_claim_builtin_test_ROM": true,
+        "challenge_contract": "1 <= lambda and 2^lambda < q"
+      }
+    },
+    {
+      "id": "OKA-PUBLIC-CFG",
+      "config": "BLSG1-REP",
+      "status": "PASS",
+      "evidence": {
+        "deterministic_for_same_public_setup_and_CA": true,
+        "independent_of_private_preimage_and_issuance_state": true,
+        "aux": [],
+        "public_provider_capabilities": [
+          "G1",
+          "G2",
+          "GT",
+          "pairing"
+        ],
+        "import_does_not_certify_setup_law": true,
+        "no_process_isolation_or_erasure_claim": true
+      }
+    },
+    {
+      "id": "OKA-FLOW-FIXEDHASH",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "FixedHash",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "private_nonce_coordinates": 2,
+        "traces_per_role": 2,
+        "freshness_rejection": true
+      }
+    },
+    {
+      "id": "OKA-FLOW-TESTRO",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "TestRO",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "private_nonce_coordinates": 2,
+        "traces_per_role": 2,
+        "freshness_rejection": true
+      }
+    },
+    {
+      "id": "OKA-ENDPOINTS",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "cases": 6,
+        "coordinate_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "challenge_endpoints": [
+          "1",
+          "2^128"
+        ],
+        "full_C_hashed": true
+      }
+    },
+    {
+      "id": "OKA-FULL-TRACE",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "width_bits": 255,
+        "first_coordinate_blocks": [
+          "2^width-1",
+          "q",
+          "0"
+        ],
+        "second_coordinate_blocks": [
+          "q",
+          "q-1"
+        ],
+        "trace_owners": [
+          "CA",
+          "user",
+          "issuer"
+        ],
+        "SH_nonce_and_traces": [
+          "two nonce coordinates",
+          "two complete traces"
+        ],
+        "global_setup_trace_in_SH": false
+      }
+    },
+    {
+      "id": "OKA-KERNEL-ALIAS",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "synthetic_known_b": 7,
+        "kernel_witness": "(-7*17 mod q,17)",
+        "distinct_secret_same_certificate_accepted": true,
+        "nonkernel_shift_rejected": true,
+        "not_a_new_kernel_theorem": true
+      }
+    },
+    {
+      "id": "OKA-IDENTITY",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "legal_identity_values": [
+          "Y",
+          "KU",
+          "KC",
+          "R",
+          "Q"
+        ],
+        "nonzero_kernel_CA_user_nonce": true,
+        "only_distinguished_h_requires_nonidentity": true
+      }
+    },
+    {
+      "id": "OKA-INVALID-FIRST",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "malformed_requests": 5,
+        "includes_nonsubgroup": true,
+        "nonce_calls": 0,
+        "H_calls": 0,
+        "prior_issued_and_private_state_preserved": true
+      }
+    },
+    {
+      "id": "OKA-NO-POP",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "request_fields": [
+          "KU",
+          "id"
+        ],
+        "user_secret_or_PoP_passed_to_issue": false,
+        "zero_bit_ID_accepted": true
+      }
+    },
+    {
+      "id": "OKA-DUPLICATE-HIT",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "ordinary_query_before_issue": true,
+        "successful_issuances": 2,
+        "distinct_certificates": 1,
+        "fresh_RO_draws": 1,
+        "proof_only_programming_stop_added_to_real_protocol": false
+      }
+    },
+    {
+      "id": "OKA-FINAL-IDENTITY",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "queries_before_verification": 0,
+        "final_lookup_index": 1,
+        "identity_exception_retained": true,
+        "not_a_full_UF_security_test": true
+      }
+    },
+    {
+      "id": "OKA-H-GUARD-STATE",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_H_values": 8,
+        "issued_and_private_state_preserved": true,
+        "nonce_consumption_before_H_failure_permitted": true
+      }
+    },
+    {
+      "id": "OKA-RO-OWNER",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "failed_constructors_leave_unbound": 3,
+        "single_service_owner": true,
+        "owner_remains_usable": true,
+        "cross_context_wire_security_claim": false
+      }
+    },
+    {
+      "id": "OKA-SIGN-BRIDGE",
+      "config": "BLSG1-REP/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "relation": "v_O=-Q=-(s_x*G+s_y*h)",
+        "identity_bridge": true,
+        "signature_algorithm_executed": false,
+        "signature_composition_security_claim": false
+      }
+    },
+    {
+      "id": "OKA-FLOW-FIXEDHASH",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "FixedHash",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "private_nonce_coordinates": 2,
+        "traces_per_role": 2,
+        "freshness_rejection": true
+      }
+    },
+    {
+      "id": "OKA-FLOW-TESTRO",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "TestRO",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "private_nonce_coordinates": 2,
+        "traces_per_role": 2,
+        "freshness_rejection": true
+      }
+    },
+    {
+      "id": "OKA-ENDPOINTS",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "cases": 6,
+        "coordinate_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "challenge_endpoints": [
+          "1",
+          "2^128"
+        ],
+        "full_C_hashed": true
+      }
+    },
+    {
+      "id": "OKA-FULL-TRACE",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "width_bits": 255,
+        "first_coordinate_blocks": [
+          "2^width-1",
+          "q",
+          "0"
+        ],
+        "second_coordinate_blocks": [
+          "q",
+          "q-1"
+        ],
+        "trace_owners": [
+          "CA",
+          "user",
+          "issuer"
+        ],
+        "SH_nonce_and_traces": [
+          "two nonce coordinates",
+          "two complete traces"
+        ],
+        "global_setup_trace_in_SH": false
+      }
+    },
+    {
+      "id": "OKA-KERNEL-ALIAS",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "synthetic_known_b": 7,
+        "kernel_witness": "(-7*17 mod q,17)",
+        "distinct_secret_same_certificate_accepted": true,
+        "nonkernel_shift_rejected": true,
+        "not_a_new_kernel_theorem": true
+      }
+    },
+    {
+      "id": "OKA-IDENTITY",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "legal_identity_values": [
+          "Y",
+          "KU",
+          "KC",
+          "R",
+          "Q"
+        ],
+        "nonzero_kernel_CA_user_nonce": true,
+        "only_distinguished_h_requires_nonidentity": true
+      }
+    },
+    {
+      "id": "OKA-INVALID-FIRST",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "malformed_requests": 5,
+        "includes_nonsubgroup": true,
+        "nonce_calls": 0,
+        "H_calls": 0,
+        "prior_issued_and_private_state_preserved": true
+      }
+    },
+    {
+      "id": "OKA-NO-POP",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "request_fields": [
+          "KU",
+          "id"
+        ],
+        "user_secret_or_PoP_passed_to_issue": false,
+        "zero_bit_ID_accepted": true
+      }
+    },
+    {
+      "id": "OKA-DUPLICATE-HIT",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "ordinary_query_before_issue": true,
+        "successful_issuances": 2,
+        "distinct_certificates": 1,
+        "fresh_RO_draws": 1,
+        "proof_only_programming_stop_added_to_real_protocol": false
+      }
+    },
+    {
+      "id": "OKA-FINAL-IDENTITY",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "queries_before_verification": 0,
+        "final_lookup_index": 1,
+        "identity_exception_retained": true,
+        "not_a_full_UF_security_test": true
+      }
+    },
+    {
+      "id": "OKA-H-GUARD-STATE",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_H_values": 8,
+        "issued_and_private_state_preserved": true,
+        "nonce_consumption_before_H_failure_permitted": true
+      }
+    },
+    {
+      "id": "OKA-RO-OWNER",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "failed_constructors_leave_unbound": 3,
+        "single_service_owner": true,
+        "owner_remains_usable": true,
+        "cross_context_wire_security_claim": false
+      }
+    },
+    {
+      "id": "OKA-SIGN-BRIDGE",
+      "config": "BLSG1-REP/PV",
+      "status": "PASS",
+      "evidence": {
+        "relation": "v_O=-Q=-(s_x*G+s_y*h)",
+        "identity_bridge": true,
+        "signature_algorithm_executed": false,
+        "signature_composition_security_claim": false
+      }
+    }
+  ],
+  "total": 35,
+  "passed": 35,
+  "failed": 0
+}

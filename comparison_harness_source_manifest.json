@@ -1,0 +1,51 @@
+{
+  "task": "W3-COMP-HARNESS",
+  "date": "2026-10-24",
+  "files": [
+    {
+      "path": "comparison_harness.py",
+      "sha256": "c0c4df12afae8ba1cc6d097be4306fab0862cbab98fe3f76e24ebabc5be77e4a"
+    },
+    {
+      "path": "check_comparison_harness.py",
+      "sha256": "5a807f52c9ccd07877d2d940724ce9172e04627312c3a2c269b168f14561d3fc"
+    },
+    {
+      "path": "comparison_harness_manifest.json",
+      "sha256": "0eb2703052628aa306bb641080a537589c2918c80da707994b7d44350a13ee1b"
+    },
+    {
+      "path": "comparison_harness_verification_results.json",
+      "sha256": "8ff3c41fc42846882f684918a4dddeaa31f814ab6fbef05a07210b90df841826"
+    },
+    {
+      "path": "w3_reference.py",
+      "sha256": "e623b2af8e08c8093aa127e1e79dbb6422c4a12e3e5892dc8cd34bee986e1a79"
+    },
+    {
+      "path": "scalar_reference.py",
+      "sha256": "902752491e1c2ee1fa76d2ac3e50766cf6974583792d0bed72747881ff477888"
+    },
+    {
+      "path": "okamoto_reference.py",
+      "sha256": "dc172e597179ae5588a19bc978f3a51451ed00ef4dd35ae265363b74e801d016"
+    },
+    {
+      "path": "dependency_lock.json",
+      "sha256": "0c1a8fe74a1dc49944f4ae2f5bee165e6815f8aa022c38cd5387f6f8b372d7f5"
+    },
+    {
+      "path": "scalar_dependency_lock.json",
+      "sha256": "497d8bc8805f836391e7b1872ea0e6e91e217d7dd7ac48f2d698adb7c9f7fdc5"
+    },
+    {
+      "path": "requirements.scalar.lock.txt",
+      "sha256": "d0761e73998fc5b2c0f43eb02229d6e097891bbdbb635b586cdd86666ce294fc"
+    }
+  ],
+  "new_dependencies_installed": false,
+  "benchmark_runs": 0,
+  "legacy_test_runs": 0,
+  "new_test_suite_runs": 1,
+  "readonly_baseline_manifest": "../../13_文獻查核/W3-COMP-HARNESS_20261024/sources_before.json"
+}

@@ -1,0 +1,4 @@
+# Additional scalar providers plus the preserved original dependency pins.
+-r requirements.lock.txt
+ecdsa==0.19.1
+six==1.17.0

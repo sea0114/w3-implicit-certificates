@@ -1,0 +1,448 @@
+{
+  "task": "W3-COMP-HARNESS",
+  "scope": "minimal functional integration acceptance",
+  "configurations": [
+    "scalar-P256-ECQV",
+    "scalar-P256-PV",
+    "scalar-BLSG1-ECQV",
+    "scalar-BLSG1-PV",
+    "PS-ECQV",
+    "PS-PV",
+    "Waters-ECQV",
+    "Waters-PV",
+    "Okamoto-BLSG1-ECQV",
+    "Okamoto-BLSG1-PV"
+  ],
+  "synthetic_fixtures_only": true,
+  "clock_used": false,
+  "benchmark_executed": false,
+  "warmup_executed": false,
+  "legacy_test_suites_executed": false,
+  "GQ_runtime_implementation": false,
+  "does_not_establish": [
+    "runtime ranking",
+    "equal-security comparison",
+    "bit-time bound",
+    "uniform BGen",
+    "fair randomness",
+    "setup secrecy",
+    "production isolation",
+    "new theorem",
+    "signature composition"
+  ],
+  "checks": [
+    {
+      "id": "CMP-FLOW",
+      "config": "scalar-P256-ECQV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 60,
+          "certificate": 60,
+          "response": 32,
+          "completed_secret": 32,
+          "public": 33
+        },
+        "traces_per_role": 1,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "scalar-P256-PV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 60,
+          "certificate": 60,
+          "response": 32,
+          "completed_secret": 32,
+          "public": 33
+        },
+        "traces_per_role": 1,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "scalar-BLSG1-ECQV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 75,
+          "certificate": 75,
+          "response": 32,
+          "completed_secret": 32,
+          "public": 48
+        },
+        "traces_per_role": 1,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "scalar-BLSG1-PV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 75,
+          "certificate": 75,
+          "response": 32,
+          "completed_secret": 32,
+          "public": 48
+        },
+        "traces_per_role": 1,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "PS-ECQV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 219,
+          "certificate": 219,
+          "response": 64,
+          "completed_secret": 64,
+          "public": 192
+        },
+        "traces_per_role": 2,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "PS-PV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 219,
+          "certificate": 219,
+          "response": 64,
+          "completed_secret": 64,
+          "public": 192
+        },
+        "traces_per_role": 2,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "Waters-ECQV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 123,
+          "certificate": 123,
+          "response": 144,
+          "completed_secret": 144,
+          "public": 96
+        },
+        "traces_per_role": 1,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "Waters-PV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 123,
+          "certificate": 123,
+          "response": 144,
+          "completed_secret": 144,
+          "public": 96
+        },
+        "traces_per_role": 1,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "Okamoto-BLSG1-ECQV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 75,
+          "certificate": 75,
+          "response": 64,
+          "completed_secret": 64,
+          "public": 48
+        },
+        "traces_per_role": 2,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-FLOW",
+      "config": "Okamoto-BLSG1-PV",
+      "status": "PASS",
+      "evidence": {
+        "seven_phases": [
+          "ca_keygen",
+          "ca_import",
+          "user_prepare",
+          "issue",
+          "completion",
+          "reconstruction",
+          "preimage_validation"
+        ],
+        "separate_setup": true,
+        "wire_bytes": {
+          "request": 75,
+          "certificate": 75,
+          "response": 64,
+          "completed_secret": 64,
+          "public": 48
+        },
+        "traces_per_role": 2,
+        "public_issuance_arity": 2,
+        "private_artifacts_retained": true,
+        "public_summary_excludes_secret_and_trace_blocks": true,
+        "full_secret_decode_before_image_check": true
+      }
+    },
+    {
+      "id": "CMP-REJECTION-TRACES",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "configurations": [
+          {
+            "config": "scalar-P256-ECQV",
+            "traces_per_role": 1,
+            "blocks_per_trace": 2
+          },
+          {
+            "config": "PS-ECQV",
+            "traces_per_role": 2,
+            "blocks_per_trace": 2
+          },
+          {
+            "config": "Waters-ECQV",
+            "traces_per_role": 1,
+            "blocks_per_trace": 2
+          },
+          {
+            "config": "Okamoto-BLSG1-ECQV",
+            "traces_per_role": 2,
+            "blocks_per_trace": 2
+          }
+        ],
+        "setup_trace_not_in_trial_outputs": true
+      }
+    },
+    {
+      "id": "CMP-SYNTHETIC-SCOPES",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "repeatable_synthetic_fixture": true,
+        "separation_fields": [
+          "session",
+          "config",
+          "trial",
+          "role"
+        ],
+        "randomness_quality_claim": false
+      }
+    },
+    {
+      "id": "CMP-PHASE-FAILURE",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "failed_phase": "user_prepare",
+        "ledger_rows_retained": 7,
+        "explicit_skipped_rows": 4,
+        "failed_trial_kept": true,
+        "partial_artifacts_kept": true,
+        "malformed_phase_return_rejected_before_commit": true,
+        "failure_summary_serializable": true
+      }
+    },
+    {
+      "id": "CMP-FALSE-VALIDATION",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "false_is_failure": true,
+        "prior_successes_retained": 6,
+        "injection_restored": true
+      }
+    },
+    {
+      "id": "CMP-WATERS-RELATION",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "canonical_individual_points": true,
+        "same_G2_projection": true,
+        "actual_H_h_relation_rejected": true,
+        "failed_trial_retained": true,
+        "projection_only_validation_used": false,
+        "injection_restored": true
+      }
+    },
+    {
+      "id": "CMP-RUNNER-GUARDS",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "rejected_runner_behaviors": [
+          "zero",
+          "twice",
+          "swallowed-twice",
+          "replacement"
+        ],
+        "timer_used": false
+      }
+    },
+    {
+      "id": "CMP-LIFECYCLE",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "setup_once": true,
+        "unique_nonnegative_trial_ids": true,
+        "history_preserved": true,
+        "fresh_service_and_role_state_per_trial": true,
+        "shared_setup_reused": true,
+        "config_identity_lambda_guards": true,
+        "GQ_static_only": true
+      }
+    },
+    {
+      "id": "CMP-SETUP-FAILURE",
+      "config": "harness-integration",
+      "status": "PASS",
+      "evidence": {
+        "separate_setup_error": true,
+        "blocked_trial_kept": true,
+        "skipped_phases": 7
+      }
+    }
+  ],
+  "total": 18,
+  "passed": 18,
+  "failed": 0
+}

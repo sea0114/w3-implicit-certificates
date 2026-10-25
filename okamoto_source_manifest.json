@@ -1,0 +1,46 @@
+{
+  "task": "W3-OKA-IMPL",
+  "date": "2026-10-24",
+  "scope": "finite adapter and targeted checks; no benchmark",
+  "files": [
+    {
+      "path": "okamoto_reference.py",
+      "sha256": "dc172e597179ae5588a19bc978f3a51451ed00ef4dd35ae265363b74e801d016"
+    },
+    {
+      "path": "check_okamoto.py",
+      "sha256": "81c49822d413ad3484b9f398c07b2092b4a5cc9ba19ecb29d43987a37c8944e5"
+    },
+    {
+      "path": "okamoto_profile_manifest.json",
+      "sha256": "0e833cbe39df96242c1628180b791744229f86bd007c1c39a7909905f0b6578e"
+    },
+    {
+      "path": "okamoto_verification_results.json",
+      "sha256": "5d519457df0871f71435a782e2d6b02e1f662e0acf7b2214165d11a13cec1618"
+    },
+    {
+      "path": "w3_reference.py",
+      "sha256": "e623b2af8e08c8093aa127e1e79dbb6422c4a12e3e5892dc8cd34bee986e1a79"
+    },
+    {
+      "path": "scalar_reference.py",
+      "sha256": "902752491e1c2ee1fa76d2ac3e50766cf6974583792d0bed72747881ff477888"
+    },
+    {
+      "path": "scalar_dependency_lock.json",
+      "sha256": "497d8bc8805f836391e7b1872ea0e6e91e217d7dd7ac48f2d698adb7c9f7fdc5"
+    },
+    {
+      "path": "requirements.scalar.lock.txt",
+      "sha256": "d0761e73998fc5b2c0f43eb02229d6e097891bbdbb635b586cdd86666ce294fc"
+    },
+    {
+      "path": "dependency_lock.json",
+      "sha256": "0c1a8fe74a1dc49944f4ae2f5bee165e6815f8aa022c38cd5387f6f8b372d7f5"
+    }
+  ],
+  "existing_dependencies_reused": true,
+  "new_dependencies_installed": false,
+  "readonly_baseline_manifest": "../../13_文獻查核/W3-OKA-IMPL_20261024/sources_before.json"
+}

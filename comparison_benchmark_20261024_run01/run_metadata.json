@@ -1,0 +1,230 @@
+{
+  "task": "W3-COMP-BENCH",
+  "schema": "W3-COMP-benchmark-v1",
+  "planned_warmups_per_config": 20,
+  "planned_formal_trials_per_config": 200,
+  "planned_configurations": 10,
+  "clock": {
+    "api": "perf_counter_ns",
+    "unit": "ns",
+    "resolution_seconds": 1e-07,
+    "monotonic": true,
+    "adjustable": false,
+    "implementation": "QueryPerformanceCounter()"
+  },
+  "timing_boundary": "two clock reads around unchanged harness once-wrapper; no overhead subtraction; record construction after ending read",
+  "setup_policy": "fresh explicit session/setup for EVERY warmup/formal trial; setup counted separately, never amortized",
+  "schedule": "serial round-robin; rotate initial configuration by round modulo 10; all warmup rounds precede all formal rounds",
+  "randomness": "OSBits/secrets.randbits; fresh full-domain samples; no deterministic seed; exact rejection with full traces",
+  "trace_policy": "complete traces retained through each trial; raw export stores counts, not private blocks; artifacts released after logging",
+  "outside_timer": [
+    "imports",
+    "source metadata",
+    "harness shape/ledger checks",
+    "independent correctness diagnostics",
+    "JSON/logging/statistics"
+  ],
+  "gc": {
+    "enabled": true,
+    "thresholds": [
+      700,
+      10,
+      10
+    ],
+    "policy": "unchanged Python automatic GC; no forced collections inside phases"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "executable": "[local interpreter path omitted]",
+    "providers": {
+      "py-ecc": "8.0.0",
+      "ecdsa": "0.19.1"
+    },
+    "logical_processors": 16,
+    "processor_identifier": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "affinity_frequency_thermal_background_controls": "not controlled or monitored"
+  },
+  "harness_manifest": {
+    "schema": "W3-COMP-HARNESS-v1",
+    "task": "W3-COMP-HARNESS",
+    "execution_kind": "untimed functional phase harness",
+    "configurations": [
+      {
+        "id": "scalar-P256-ECQV",
+        "family": "Scalar",
+        "profile": "P256",
+        "mode": "ECQV"
+      },
+      {
+        "id": "scalar-P256-PV",
+        "family": "Scalar",
+        "profile": "P256",
+        "mode": "PV"
+      },
+      {
+        "id": "scalar-BLSG1-ECQV",
+        "family": "Scalar",
+        "profile": "BLSG1",
+        "mode": "ECQV"
+      },
+      {
+        "id": "scalar-BLSG1-PV",
+        "family": "Scalar",
+        "profile": "BLSG1",
+        "mode": "PV"
+      },
+      {
+        "id": "PS-ECQV",
+        "family": "PS",
+        "profile": "",
+        "mode": "ECQV"
+      },
+      {
+        "id": "PS-PV",
+        "family": "PS",
+        "profile": "",
+        "mode": "PV"
+      },
+      {
+        "id": "Waters-ECQV",
+        "family": "Waters",
+        "profile": "",
+        "mode": "ECQV"
+      },
+      {
+        "id": "Waters-PV",
+        "family": "Waters",
+        "profile": "",
+        "mode": "PV"
+      },
+      {
+        "id": "Okamoto-BLSG1-ECQV",
+        "family": "Okamoto",
+        "profile": "BLSG1",
+        "mode": "ECQV"
+      },
+      {
+        "id": "Okamoto-BLSG1-PV",
+        "family": "Okamoto",
+        "profile": "BLSG1",
+        "mode": "PV"
+      }
+    ],
+    "phase_order": [
+      "group_setup",
+      "ca_keygen",
+      "ca_import",
+      "user_prepare",
+      "issue",
+      "completion",
+      "reconstruction",
+      "preimage_validation"
+    ],
+    "phase_contracts": {
+      "group_setup": "Warm provider constructor; Waters exact nonzero beta plus n+1 full scalars, h/U multiplication and validation; Okamoto exact nonzero b, h multiplication and import validation; global exponents/traces not exported.",
+      "ca_keygen": "Fresh full-domain secret sampling, mu, secret/public encoding, complete private trace tuple.",
+      "ca_import": "Decode/validate existing secret, recompute mu/Y, create fixed SHAKE hash, context/challenge guards and fresh service state; distinct from key generation.",
+      "user_prepare": "Fresh full-domain user sampling, mu, canonical request and secret encoding, complete private traces.",
+      "issue": "Canonical wire request/member validation before random bits; full nonce sampling/traces, KC/R/C, fixed SHAKE hash, response, issued/private state and encoded outputs.",
+      "completion": "Certificate parse/member validation; decode both user/response secrets (including Waters relation); fixed H, secret operations and canonical secret output.",
+      "reconstruction": "Certificate parse/member validation, fixed H, public operations AND canonical public output encoding.",
+      "preimage_validation": "fresh=False; full internal reconstruction, secret decode/member validation, mu, canonical equality; does not reuse the separately reconstructed public value."
+    },
+    "default_identity": {
+      "bits": 128,
+      "hex": "30313233343536373839616263646566"
+    },
+    "lambda": 128,
+    "challenge_range": "1..2^lambda inclusive; 2^lambda < q",
+    "hash": {
+      "algorithm": "existing w3_reference.FixedHash SHAKE256",
+      "byte_domain_hex": "57332d48636572742d763100",
+      "bit_domain_hex": "57332d48636572742d626974732d763100",
+      "rule": "first lambda output bits as integer, plus 1; complete C bytes; no hash cache",
+      "model": "fixed deterministic H; concrete tests are not ROM security"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "implementation": "CPython",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "executable": "[local interpreter path omitted]",
+      "providers": {
+        "py-ecc": "8.0.0",
+        "ecdsa": "0.19.1"
+      }
+    },
+    "sources": {
+      "comparison_harness.py": {
+        "path": "comparison_harness.py",
+        "sha256": "c0c4df12afae8ba1cc6d097be4306fab0862cbab98fe3f76e24ebabc5be77e4a"
+      },
+      "w3_reference.py": {
+        "path": "w3_reference.py",
+        "sha256": "e623b2af8e08c8093aa127e1e79dbb6422c4a12e3e5892dc8cd34bee986e1a79"
+      },
+      "scalar_reference.py": {
+        "path": "scalar_reference.py",
+        "sha256": "902752491e1c2ee1fa76d2ac3e50766cf6974583792d0bed72747881ff477888"
+      },
+      "okamoto_reference.py": {
+        "path": "okamoto_reference.py",
+        "sha256": "dc172e597179ae5588a19bc978f3a51451ed00ef4dd35ae265363b74e801d016"
+      },
+      "py_ecc_package": {
+        "path": "vendor/py_ecc/__init__.py",
+        "sha256": "d3358f9fabe08a3d8a4df3fe57c3cca32e6cb5d729d90848d128518086bfecec"
+      },
+      "ecdsa_package": {
+        "path": "vendor/ecdsa/__init__.py",
+        "sha256": "c11527537834d4c33e98b35e9a7a2ffbff01f350e56d2aeaa05b4e3b86d9cd04"
+      },
+      "ecdsa_ellipticcurve": {
+        "path": "vendor/ecdsa/ellipticcurve.py",
+        "sha256": "3a1a3126c249ffb0e9e5ed7401b943fee8bd528d96c68cd16f2dfb831a9cb8e9"
+      },
+      "py_ecc_optimized_curve": {
+        "path": "vendor/py_ecc/optimized_bls12_381/optimized_curve.py",
+        "sha256": "f66da497e4efa555ce4b4364a06a154ff2038ed6c227b702b109fba298c1ad8e"
+      },
+      "py_ecc_optimized_pairing": {
+        "path": "vendor/py_ecc/optimized_bls12_381/optimized_pairing.py",
+        "sha256": "0763415a7de64375dccfa62156d06505923ac6f8f3e1abab87126018d95abef9"
+      }
+    },
+    "scope": {
+      "provider_imports": "already imported/warm; excluded from every phase; no cold-start claim",
+      "setup_reuse": "one explicit setup per session/configuration; reused by its trials; independent sessions by default per mode",
+      "freshness": "fresh CA/user/nonce and fresh service per trial; verify_preimage fresh=False",
+      "source_initialization": "bits_factory(context) is inside the consuming setup/keygen/user/issue phase",
+      "cache_policy": "no harness application hash/point-validation/pairing cache or cross-certificate precomputation; interpreter/provider warm and their intrinsic behavior retained",
+      "trace_policy": "complete immutable CA/user/nonce traces retained privately; summaries/trace exports/JSON/source hashing outside phase calls; no global setup trace or exponent export",
+      "diagnostics": "cheap result-shape checks and success classification occur outside phase callables, without duplicate secret decoding or group operations",
+      "legacy_guard": "PS/Waters use a harness-local exact-int/range guard around unchanged FixedHash/core; legacy source modules are not modified",
+      "Waters_setup": "n=8; h plus nine U points included even though no signatures are executed; certificate id is separately 128 bits",
+      "Okamoto_setup": "fresh nonzero b and H=bG1, including public-import validation; empty aux; public provider also exposes G2/GT/pairing",
+      "runner_contract": "exactly one callable invocation and unchanged returned object; failure retained; no rollback or adversarial runner isolation",
+      "failure_policy": "retain phase/error and skipped successors; no silent sample deletion; repeated setup/trial IDs rejected",
+      "accounting": "keygen and import both compute Y; separately report actual costs. Recon and full preimage validation are alternative verifier workflows; never add recon twice",
+      "pp_encoding": "public metadata only; no complete serialized pp wire-size claim",
+      "GQ": "static source-separated comparison only; no execution",
+      "signatures": "not executed; no composed-signature security claim",
+      "clock": "none; no formal performance trials/statistics; no bit-time or constant-time claim"
+    }
+  },
+  "benchmark_source_sha256": "fd8d080efa4cb309a75b585357fbf4f084776d7c32aa7a1a39c806148e587471",
+  "interpretation": [
+    "single host/process serial observations",
+    "not equal-security ranking",
+    "not native W2 replay or historical R7 reproduction",
+    "no bit-time/worst-case/constant-time guarantee",
+    "no signatures or GQ execution",
+    "fixed concrete hash, not ROM instantiation"
+  ],
+  "started_utc": "2026-10-24T09:43:04.292393+00:00",
+  "status": "completed",
+  "finished_utc": "2026-10-24T10:25:04.693170+00:00",
+  "records_saved": 2200,
+  "failed_trials": 0
+}

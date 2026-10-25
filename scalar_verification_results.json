@@ -1,0 +1,805 @@
+{
+  "task": "W3-SC-IMPL",
+  "scope": "targeted finite functional and boundary acceptance",
+  "synthetic_fixtures_only": true,
+  "benchmark_executed": false,
+  "historical_PS_Waters_checks_executed": false,
+  "does_not_establish": [
+    "fair random bits",
+    "uniform BGen",
+    "bit-time clock",
+    "ROM instantiation",
+    "signature composition",
+    "cross-context protocol security"
+  ],
+  "configs": [
+    "P256/ECQV",
+    "P256/PV",
+    "BLSG1/ECQV",
+    "BLSG1/PV"
+  ],
+  "checks": [
+    {
+      "id": "SC-CODEC-POINT",
+      "config": "P256",
+      "status": "PASS",
+      "evidence": {
+        "finite_bytes": 33,
+        "identity_bytes": 1,
+        "rejected_classes": [
+          "empty",
+          "trailing",
+          "truncated",
+          "mutable-bytes",
+          "padded-identity",
+          "finite-prefix",
+          "x-field-overflow",
+          "uncompressed",
+          "off-curve"
+        ],
+        "membership_strategy": "cofactor-one curve check"
+      }
+    },
+    {
+      "id": "SC-CODEC-SCALAR",
+      "config": "P256",
+      "status": "PASS",
+      "evidence": {
+        "accepted_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "width_bytes": 32,
+        "range_is_profile_q": true,
+        "bool_rejected": true,
+        "CA_and_user_upper_endpoint_sampled": true
+      }
+    },
+    {
+      "id": "SC-FRAME",
+      "config": "P256",
+      "status": "PASS",
+      "evidence": {
+        "rejected_classes": [
+          "prefix",
+          "version",
+          "role",
+          "LP-short",
+          "LP-long",
+          "LP-nonminimal",
+          "LP-unterminated",
+          "id-tag",
+          "id-Nat-nonminimal",
+          "id-Nat-unterminated",
+          "id-length",
+          "id-padding",
+          "trailing",
+          "truncated",
+          "mutable-bytes",
+          "empty",
+          "LP1-nonidentity-payload",
+          "LP33-padded-identity",
+          "certificate-as-request",
+          "non-bool-role",
+          "untyped-id",
+          "bool-id-length"
+        ],
+        "13_bit_id_roundtrip": true
+      }
+    },
+    {
+      "id": "SC-SIZE",
+      "config": "P256",
+      "status": "PASS",
+      "evidence": {
+        "certificate_and_request_bytes": {
+          "finite": 60,
+          "identity": 28
+        },
+        "response_and_secret_bytes": 32,
+        "id_bits": 128,
+        "classification": "functional byte-count check, no runtime comparison"
+      }
+    },
+    {
+      "id": "SC-RO-COMMIT",
+      "config": "P256",
+      "status": "PASS",
+      "evidence": {
+        "bad_bit_values": 7,
+        "validate_then_commit": true,
+        "program_fresh_is_harness_only": true,
+        "endpoints": [
+          "1",
+          "2^128"
+        ]
+      }
+    },
+    {
+      "id": "SC-HASH-BITS",
+      "config": "P256",
+      "status": "PASS",
+      "evidence": {
+        "byte_alias": true,
+        "nonbyte_lengths_distinct": [
+          1,
+          2
+        ],
+        "fixed_domain_encodings_checked": [
+          "W3-Hcert-v1",
+          "W3-Hcert-bits-v1"
+        ]
+      }
+    },
+    {
+      "id": "SC-FLOW-FIXEDHASH",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "FixedHash",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-FLOW-TESTRO",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "TestRO",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-ENDPOINTS",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "cases": 8,
+        "secret_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "challenge_endpoints": [
+          "1",
+          "2^128"
+        ],
+        "full_certificate_hashed": true
+      }
+    },
+    {
+      "id": "SC-FULL-TRACE",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "width_bits": 256,
+        "blocks_per_owner": [
+          "2^width-1",
+          "q",
+          "0"
+        ],
+        "all_three_owners_retained": true,
+        "trace_export_length": 1538
+      }
+    },
+    {
+      "id": "SC-INVALID-FIRST",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_inputs": 5,
+        "including_invalid_group_element": true,
+        "RNG_calls": 0,
+        "H_calls": 0,
+        "prior_issued_and_private_state_preserved": true
+      }
+    },
+    {
+      "id": "SC-NO-POP",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "request_fields": [
+          "KU",
+          "id"
+        ],
+        "PoP_or_user_secret_input": false,
+        "finite_valid_KU_accepted": true
+      }
+    },
+    {
+      "id": "SC-DUPLICATE-HIT",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "ordinary_query_before_issue": true,
+        "successful_issuances": 2,
+        "distinct_certificates": 1,
+        "RO_fresh_draws": 1
+      }
+    },
+    {
+      "id": "SC-FINAL-IDENTITY",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "before_verification_queries": 0,
+        "final_lookup_index": 1,
+        "identity_exception_retained": true,
+        "not_a_full_UF_security_test": true
+      }
+    },
+    {
+      "id": "SC-H-GUARD-STATE",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_H_values": 8,
+        "issued_and_private_state_preserved": true,
+        "nonce_consumption_before_H_failure_permitted": true
+      }
+    },
+    {
+      "id": "SC-RO-OWNER",
+      "config": "P256/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "single_service_RO_owner": true,
+        "failed_constructor_leaves_RO_unbound": true,
+        "original_owner_duplicate_issue_allowed": true,
+        "wire_cross_mode_security_claim": false
+      }
+    },
+    {
+      "id": "SC-FLOW-FIXEDHASH",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "FixedHash",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-FLOW-TESTRO",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "TestRO",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-ENDPOINTS",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "cases": 8,
+        "secret_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "challenge_endpoints": [
+          "1",
+          "2^128"
+        ],
+        "full_certificate_hashed": true
+      }
+    },
+    {
+      "id": "SC-FULL-TRACE",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "width_bits": 256,
+        "blocks_per_owner": [
+          "2^width-1",
+          "q",
+          "0"
+        ],
+        "all_three_owners_retained": true,
+        "trace_export_length": 1538
+      }
+    },
+    {
+      "id": "SC-INVALID-FIRST",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_inputs": 5,
+        "including_invalid_group_element": true,
+        "RNG_calls": 0,
+        "H_calls": 0,
+        "prior_issued_and_private_state_preserved": true
+      }
+    },
+    {
+      "id": "SC-NO-POP",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "request_fields": [
+          "KU",
+          "id"
+        ],
+        "PoP_or_user_secret_input": false,
+        "finite_valid_KU_accepted": true
+      }
+    },
+    {
+      "id": "SC-DUPLICATE-HIT",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "ordinary_query_before_issue": true,
+        "successful_issuances": 2,
+        "distinct_certificates": 1,
+        "RO_fresh_draws": 1
+      }
+    },
+    {
+      "id": "SC-FINAL-IDENTITY",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "before_verification_queries": 0,
+        "final_lookup_index": 1,
+        "identity_exception_retained": true,
+        "not_a_full_UF_security_test": true
+      }
+    },
+    {
+      "id": "SC-H-GUARD-STATE",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_H_values": 8,
+        "issued_and_private_state_preserved": true,
+        "nonce_consumption_before_H_failure_permitted": true
+      }
+    },
+    {
+      "id": "SC-RO-OWNER",
+      "config": "P256/PV",
+      "status": "PASS",
+      "evidence": {
+        "single_service_RO_owner": true,
+        "failed_constructor_leaves_RO_unbound": true,
+        "original_owner_duplicate_issue_allowed": true,
+        "wire_cross_mode_security_claim": false
+      }
+    },
+    {
+      "id": "SC-CODEC-POINT",
+      "config": "BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "finite_bytes": 48,
+        "identity_bytes": 48,
+        "rejected_classes": [
+          "empty",
+          "trailing",
+          "truncated",
+          "mutable-bytes",
+          "missing-compression-flag",
+          "noncanonical-identity-sign",
+          "noncanonical-identity-payload",
+          "on-curve-nonsubgroup"
+        ],
+        "membership_strategy": "explicit qP=O"
+      }
+    },
+    {
+      "id": "SC-CODEC-SCALAR",
+      "config": "BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "accepted_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "width_bytes": 32,
+        "range_is_profile_q": true,
+        "bool_rejected": true,
+        "CA_and_user_upper_endpoint_sampled": true
+      }
+    },
+    {
+      "id": "SC-FRAME",
+      "config": "BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "rejected_classes": [
+          "prefix",
+          "version",
+          "role",
+          "LP-short",
+          "LP-long",
+          "LP-nonminimal",
+          "LP-unterminated",
+          "id-tag",
+          "id-Nat-nonminimal",
+          "id-Nat-unterminated",
+          "id-length",
+          "id-padding",
+          "trailing",
+          "truncated",
+          "mutable-bytes",
+          "empty",
+          "certificate-as-request",
+          "non-bool-role",
+          "untyped-id",
+          "bool-id-length"
+        ],
+        "13_bit_id_roundtrip": true
+      }
+    },
+    {
+      "id": "SC-SIZE",
+      "config": "BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "certificate_and_request_bytes": {
+          "finite": 75,
+          "identity": 75
+        },
+        "response_and_secret_bytes": 32,
+        "id_bits": 128,
+        "classification": "functional byte-count check, no runtime comparison"
+      }
+    },
+    {
+      "id": "SC-RO-COMMIT",
+      "config": "BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "bad_bit_values": 7,
+        "validate_then_commit": true,
+        "program_fresh_is_harness_only": true,
+        "endpoints": [
+          "1",
+          "2^128"
+        ]
+      }
+    },
+    {
+      "id": "SC-HASH-BITS",
+      "config": "BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "byte_alias": true,
+        "nonbyte_lengths_distinct": [
+          1,
+          2
+        ],
+        "fixed_domain_encodings_checked": [
+          "W3-Hcert-v1",
+          "W3-Hcert-bits-v1"
+        ]
+      }
+    },
+    {
+      "id": "SC-FLOW-FIXEDHASH",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "FixedHash",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-FLOW-TESTRO",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "TestRO",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-ENDPOINTS",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "cases": 8,
+        "secret_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "challenge_endpoints": [
+          "1",
+          "2^128"
+        ],
+        "full_certificate_hashed": true
+      }
+    },
+    {
+      "id": "SC-FULL-TRACE",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "width_bits": 255,
+        "blocks_per_owner": [
+          "2^width-1",
+          "q",
+          "0"
+        ],
+        "all_three_owners_retained": true,
+        "trace_export_length": 1532
+      }
+    },
+    {
+      "id": "SC-INVALID-FIRST",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_inputs": 5,
+        "including_invalid_group_element": true,
+        "RNG_calls": 0,
+        "H_calls": 0,
+        "prior_issued_and_private_state_preserved": true
+      }
+    },
+    {
+      "id": "SC-NO-POP",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "request_fields": [
+          "KU",
+          "id"
+        ],
+        "PoP_or_user_secret_input": false,
+        "finite_valid_KU_accepted": true
+      }
+    },
+    {
+      "id": "SC-DUPLICATE-HIT",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "ordinary_query_before_issue": true,
+        "successful_issuances": 2,
+        "distinct_certificates": 1,
+        "RO_fresh_draws": 1
+      }
+    },
+    {
+      "id": "SC-FINAL-IDENTITY",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "before_verification_queries": 0,
+        "final_lookup_index": 1,
+        "identity_exception_retained": true,
+        "not_a_full_UF_security_test": true
+      }
+    },
+    {
+      "id": "SC-H-GUARD-STATE",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_H_values": 8,
+        "issued_and_private_state_preserved": true,
+        "nonce_consumption_before_H_failure_permitted": true
+      }
+    },
+    {
+      "id": "SC-RO-OWNER",
+      "config": "BLSG1/ECQV",
+      "status": "PASS",
+      "evidence": {
+        "single_service_RO_owner": true,
+        "failed_constructor_leaves_RO_unbound": true,
+        "original_owner_duplicate_issue_allowed": true,
+        "wire_cross_mode_security_claim": false
+      }
+    },
+    {
+      "id": "SC-FLOW-FIXEDHASH",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "FixedHash",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-FLOW-TESTRO",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "hash": "TestRO",
+        "challenge_in_domain": true,
+        "public_outputs": [
+          "C",
+          "r"
+        ],
+        "trace_owners": [
+          "CA keygen",
+          "user",
+          "issuer"
+        ]
+      }
+    },
+    {
+      "id": "SC-ENDPOINTS",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "cases": 8,
+        "secret_endpoints": [
+          "0",
+          "q-1"
+        ],
+        "challenge_endpoints": [
+          "1",
+          "2^128"
+        ],
+        "full_certificate_hashed": true
+      }
+    },
+    {
+      "id": "SC-FULL-TRACE",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "width_bits": 255,
+        "blocks_per_owner": [
+          "2^width-1",
+          "q",
+          "0"
+        ],
+        "all_three_owners_retained": true,
+        "trace_export_length": 1532
+      }
+    },
+    {
+      "id": "SC-INVALID-FIRST",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_inputs": 5,
+        "including_invalid_group_element": true,
+        "RNG_calls": 0,
+        "H_calls": 0,
+        "prior_issued_and_private_state_preserved": true
+      }
+    },
+    {
+      "id": "SC-NO-POP",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "request_fields": [
+          "KU",
+          "id"
+        ],
+        "PoP_or_user_secret_input": false,
+        "finite_valid_KU_accepted": true
+      }
+    },
+    {
+      "id": "SC-DUPLICATE-HIT",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "ordinary_query_before_issue": true,
+        "successful_issuances": 2,
+        "distinct_certificates": 1,
+        "RO_fresh_draws": 1
+      }
+    },
+    {
+      "id": "SC-FINAL-IDENTITY",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "before_verification_queries": 0,
+        "final_lookup_index": 1,
+        "identity_exception_retained": true,
+        "not_a_full_UF_security_test": true
+      }
+    },
+    {
+      "id": "SC-H-GUARD-STATE",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "invalid_H_values": 8,
+        "issued_and_private_state_preserved": true,
+        "nonce_consumption_before_H_failure_permitted": true
+      }
+    },
+    {
+      "id": "SC-RO-OWNER",
+      "config": "BLSG1/PV",
+      "status": "PASS",
+      "evidence": {
+        "single_service_RO_owner": true,
+        "failed_constructor_leaves_RO_unbound": true,
+        "original_owner_duplicate_issue_allowed": true,
+        "wire_cross_mode_security_claim": false
+      }
+    },
+    {
+      "id": "SC-PROFILE-CONTRACTS",
+      "config": "P256+BLSG1",
+      "status": "PASS",
+      "evidence": {
+        "BLS_q_accepted_only_in_P256": true,
+        "lambda255": {
+          "P256": "accepted",
+          "BLSG1": "rejected"
+        },
+        "cross_curve_finite_and_identity_frames_rejected": true,
+        "cross_mode_wire_replay_claim": false
+      }
+    }
+  ],
+  "total": 53,
+  "passed": 53,
+  "failed": 0
+}

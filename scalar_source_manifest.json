@@ -1,0 +1,45 @@
+{
+  "task": "W3-SC-IMPL",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "files": [
+    {
+      "path": "scalar_reference.py",
+      "sha256": "902752491e1c2ee1fa76d2ac3e50766cf6974583792d0bed72747881ff477888",
+      "bytes": 11833
+    },
+    {
+      "path": "check_scalar.py",
+      "sha256": "bb5592d73cd99a7930604a5c14eefa91c8d8145ffdb2a9425fc338c6e4446435",
+      "bytes": 25546
+    },
+    {
+      "path": "requirements.scalar.lock.txt",
+      "sha256": "d0761e73998fc5b2c0f43eb02229d6e097891bbdbb635b586cdd86666ce294fc",
+      "bytes": 126
+    },
+    {
+      "path": "scalar_profile_manifest.json",
+      "sha256": "a17ac2cedb53be60e54854cbac346252966db252d1d1f44766d8dfb552dda19c",
+      "bytes": 2221
+    },
+    {
+      "path": "scalar_dependency_lock.json",
+      "sha256": "497d8bc8805f836391e7b1872ea0e6e91e217d7dd7ac48f2d698adb7c9f7fdc5",
+      "bytes": 7897
+    },
+    {
+      "path": "scalar_verification_results.json",
+      "sha256": "d317cd7e2594420ff001ecd634f59867103aa1fcf735bea614069ac5b25e7e52",
+      "bytes": 19178
+    }
+  ],
+  "shared_legacy_core": {
+    "path": "w3_reference.py",
+    "sha256": "e623b2af8e08c8093aa127e1e79dbb6422c4a12e3e5892dc8cd34bee986e1a79"
+  },
+  "legacy_source_manifest_preserved": true,
+  "new_dependencies": "scalar_dependency_lock.json",
+  "validation_command": "python -X utf8 check_scalar.py",
+  "benchmark_command_executed": false
+}

@@ -1,0 +1,49 @@
+{
+  "python": "3.12.14",
+  "packages": [
+    {
+      "name": "annotated-types",
+      "version": "0.8.0"
+    },
+    {
+      "name": "cytoolz",
+      "version": "1.2.0"
+    },
+    {
+      "name": "eth-hash",
+      "version": "0.8.0"
+    },
+    {
+      "name": "eth-typing",
+      "version": "6.0.0"
+    },
+    {
+      "name": "eth-utils",
+      "version": "6.0.0"
+    },
+    {
+      "name": "py-ecc",
+      "version": "8.0.0"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.14.1"
+    },
+    {
+      "name": "pydantic_core",
+      "version": "2.50.1"
+    },
+    {
+      "name": "toolz",
+      "version": "1.2.0"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0"
+    }
+  ]
+}

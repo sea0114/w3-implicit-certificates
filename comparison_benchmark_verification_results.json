@@ -1,0 +1,47 @@
+{
+  "task": "W3-COMP-BENCH-preflight",
+  "checks": [
+    {
+      "id": "timer",
+      "status": "PASS",
+      "evidence": {
+        "unchanged_return": true,
+        "exception_propagated_and_timed": true
+      }
+    },
+    {
+      "id": "schedule",
+      "status": "PASS",
+      "evidence": {
+        "records": 2200,
+        "warmup_per_config": 20,
+        "formal_per_config": 200,
+        "position_balance": true
+      }
+    },
+    {
+      "id": "statistics",
+      "status": "PASS",
+      "evidence": {
+        "hand_calculated_statistics": true,
+        "failures_and_skips_preserved": true,
+        "no_trimming": true
+      }
+    },
+    {
+      "id": "integration",
+      "status": "PASS",
+      "evidence": {
+        "eight_phases": true,
+        "fake_clock_only": true,
+        "real_harness_P256_PV_flow": true,
+        "serialization": true
+      }
+    }
+  ],
+  "total": 4,
+  "passed": 4,
+  "failed": 0,
+  "timing_values_are_fake_fixtures": true,
+  "legacy_suites_executed": false
+}

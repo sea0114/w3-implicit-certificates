@@ -1,0 +1,154 @@
+{
+  "provider_sources": [
+    {
+      "path": "vendor/py_ecc/__init__.py",
+      "sha256": "d3358f9fabe08a3d8a4df3fe57c3cca32e6cb5d729d90848d128518086bfecec"
+    },
+    {
+      "path": "vendor/py_ecc/bls/__init__.py",
+      "sha256": "63df9df9f8f3ed3ff377a60e629f63a2aa26aac81f3aec4c4d159632676d427c"
+    },
+    {
+      "path": "vendor/py_ecc/bls/ciphersuites.py",
+      "sha256": "17963b6adb857f26885f081b4f98835d46dc3c6ba9fb12cf6de1e4e8e89893ba"
+    },
+    {
+      "path": "vendor/py_ecc/bls/constants.py",
+      "sha256": "853d53c116922891c3acd1b19577a0f0fa1be4dc0a0fa1075c9d219288be6d75"
+    },
+    {
+      "path": "vendor/py_ecc/bls/g2_primitives.py",
+      "sha256": "470c5739d0b527a0c468b14fc510c31e16f0ba3bc9412b2a8158e60498d15cda"
+    },
+    {
+      "path": "vendor/py_ecc/bls/hash.py",
+      "sha256": "955ef77d4e37b36053b028aff8f7de23b2fe21a51bd8835fec04dc436b4e801b"
+    },
+    {
+      "path": "vendor/py_ecc/bls/hash_to_curve.py",
+      "sha256": "5fe6cd52a3cf63b49db83659fd80ed031af1aaa272f4af0913144ed45ab71aa1"
+    },
+    {
+      "path": "vendor/py_ecc/bls/point_compression.py",
+      "sha256": "a817d3e548cea23624f3b04f218a35d14b000049b7c49c5b37b5284849792d30"
+    },
+    {
+      "path": "vendor/py_ecc/bls/typing.py",
+      "sha256": "37a2efae047098b5fe6da705828636ed7170a0d9dcd9d8cdb9e7208d59d7f6f2"
+    },
+    {
+      "path": "vendor/py_ecc/bls12_381/__init__.py",
+      "sha256": "aca12230307d41af081f9151b0557b827c9173e90bc9684399ae25e353981bb4"
+    },
+    {
+      "path": "vendor/py_ecc/bls12_381/bls12_381_curve.py",
+      "sha256": "cd7836445fc7ea0ae1fab99bc78ca719ca6615b5c6e54431db736428e1fa0b36"
+    },
+    {
+      "path": "vendor/py_ecc/bls12_381/bls12_381_pairing.py",
+      "sha256": "9c368474c3ad2c512d4eb2296675fcfa83e28327af67abcf3b8141ec69b4b782"
+    },
+    {
+      "path": "vendor/py_ecc/bn128/__init__.py",
+      "sha256": "d1beddf99900cf8dba2b018b1ae0ec18b6f3f339285e39e54005a8cb319f121a"
+    },
+    {
+      "path": "vendor/py_ecc/bn128/bn128_curve.py",
+      "sha256": "ddc903edfd3799ae4a0f6548f6a015914a28393a643c1283c663a1ce7a746445"
+    },
+    {
+      "path": "vendor/py_ecc/bn128/bn128_pairing.py",
+      "sha256": "45ae0c60dcfa53b73b974ad9f7f4def6dddaed2849321d5e54a3b8102703f07d"
+    },
+    {
+      "path": "vendor/py_ecc/fields/__init__.py",
+      "sha256": "1f06b358ca244396a7d6b888c3d9cf27139af861e61733b8c12c391be8209f60"
+    },
+    {
+      "path": "vendor/py_ecc/fields/field_elements.py",
+      "sha256": "640ff78e8ff09ed84741aa1a4a3588038fb27a114e2f745b8f0eb6625c14af50"
+    },
+    {
+      "path": "vendor/py_ecc/fields/field_properties.py",
+      "sha256": "9636251929dc93b9b9ae93b8aa0f91e14ed829248a0858b0fa881d5ff9105830"
+    },
+    {
+      "path": "vendor/py_ecc/fields/optimized_field_elements.py",
+      "sha256": "070159688a16c1346a31500f4f1a9d031cb7ce60c8fa1847ab3c534302a22c73"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bls12_381/__init__.py",
+      "sha256": "2a396cbc0b58984597fae417d3602779009cfe0efe1fa54c79da981435943b10"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bls12_381/constants.py",
+      "sha256": "4ace07deb61aeeaff5cf68fd457f1fb7301f5d950e5c6a5bab57c0f4f3a841ea"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bls12_381/optimized_clear_cofactor.py",
+      "sha256": "058d7a6132cd569765728afc125725f8c9101dcb49dd3bec1fda2cd91c4e2835"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bls12_381/optimized_curve.py",
+      "sha256": "f66da497e4efa555ce4b4364a06a154ff2038ed6c227b702b109fba298c1ad8e"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bls12_381/optimized_pairing.py",
+      "sha256": "0763415a7de64375dccfa62156d06505923ac6f8f3e1abab87126018d95abef9"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bls12_381/optimized_swu.py",
+      "sha256": "2a7c622cce65d2879fa805579052ab39c5130baa04cde3ea0b1fe25b2b225e15"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bn128/__init__.py",
+      "sha256": "0aba3fa2aaa32c13ca96cf3910b2a1fdefa16decabd8129c5f738ea4e0a82af2"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bn128/optimized_curve.py",
+      "sha256": "d3cb6a282a9313424edd5b72e7c8fc92e5288888d0336fb508c2bc378ef3b670"
+    },
+    {
+      "path": "vendor/py_ecc/optimized_bn128/optimized_pairing.py",
+      "sha256": "e67618b43bbd327e3762a4abb14c713ad8902a2a61f5d5044e0df14e623f278e"
+    },
+    {
+      "path": "vendor/py_ecc/secp256k1/__init__.py",
+      "sha256": "7323a9ef1c3c72173102b6ae54f3da70fe2207f1cab83cc6796c85c113b185c8"
+    },
+    {
+      "path": "vendor/py_ecc/secp256k1/secp256k1.py",
+      "sha256": "ebd9c9164ac449056902ce3cee0a3b58ab697b3a1c36cd923a95e2f20b4f68d2"
+    },
+    {
+      "path": "vendor/py_ecc/typing.py",
+      "sha256": "97acd85c8e13f4964e28bde2a3f38d774bffe52b53e7e0e8549b5e6b0ae64050"
+    },
+    {
+      "path": "vendor/py_ecc/utils.py",
+      "sha256": "38c32d486f10364a82b9e029fe169e2c0ad1e355f046b4fc305e58352c4b34f6"
+    }
+  ],
+  "research_code": [
+    {
+      "path": "benchmark_reference.py",
+      "sha256": "583cc5b494f224ed8bbc8ed7b94b9020658f4820e16cd78035d4ade8674f518b"
+    },
+    {
+      "path": "check_boundaries.py",
+      "sha256": "f8b915a009752b86bd23f11fd915dc6986d417cfd2475db2eab9f8028478f816"
+    },
+    {
+      "path": "check_reference.py",
+      "sha256": "518c926c60be5bfe7a1da4fe4462213189daf32eadce0b70b1e65528376978b2"
+    },
+    {
+      "path": "finite_bounds.py",
+      "sha256": "b5c84694df4128570d84ca3d2110004cf58459ab1a1dfe3e203d818c44f5b9f1"
+    },
+    {
+      "path": "w3_reference.py",
+      "sha256": "e623b2af8e08c8093aa127e1e79dbb6422c4a12e3e5892dc8cd34bee986e1a79"
+    }
+  ]
+}

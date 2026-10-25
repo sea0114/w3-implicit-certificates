@@ -1,0 +1,250 @@
+{
+  "task": "W3-P256-REP-CONTROL",
+  "schema": "W3-P256-REP-benchmark-v1",
+  "planned_warmups_per_config": 20,
+  "planned_formal_trials_per_config": 200,
+  "planned_configurations": 2,
+  "clock": {
+    "api": "perf_counter_ns",
+    "unit": "ns",
+    "resolution_seconds": 1e-07,
+    "monotonic": true,
+    "adjustable": false,
+    "implementation": "QueryPerformanceCounter()"
+  },
+  "timing_boundary": "two clock reads around unchanged harness once-wrapper; no overhead subtraction; record construction after ending read",
+  "setup_policy": "fresh explicit session/setup for EVERY warmup/formal trial; setup counted separately, never amortized",
+  "schedule": "serial two-config rounds; starting config rotates mod 2; all warmups before formal",
+  "randomness": "OSBits/secrets.randbits; fresh full-domain samples; no deterministic seed; exact rejection with full traces",
+  "trace_policy": "complete private traces through trial; counts exported; no private blocks retained in JSON",
+  "outside_timer": [
+    "imports",
+    "source metadata",
+    "harness shape/ledger checks",
+    "independent correctness diagnostics",
+    "JSON/logging/statistics",
+    "read-only R/Y representation diagnostics, including extra certificate decode"
+  ],
+  "gc": {
+    "enabled": true,
+    "thresholds": [
+      700,
+      10,
+      10
+    ],
+    "policy": "unchanged Python automatic GC; no forced collections inside phases"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "executable": "[local interpreter path omitted]",
+    "providers": {
+      "py-ecc": "8.0.0",
+      "ecdsa": "0.19.1"
+    },
+    "logical_processors": 16,
+    "processor_identifier": "AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD",
+    "affinity_frequency_thermal_background_controls": "not controlled or monitored"
+  },
+  "harness_manifest": {
+    "schema": "W3-COMP-HARNESS-v1",
+    "task": "W3-COMP-HARNESS",
+    "execution_kind": "inherited seven-phase harness; isolated control setup subclass; outer timer",
+    "configurations": [
+      {
+        "id": "scalar-P256-ECQV",
+        "family": "Scalar",
+        "profile": "P256",
+        "mode": "ECQV"
+      },
+      {
+        "id": "scalar-P256-PV",
+        "family": "Scalar",
+        "profile": "P256",
+        "mode": "PV"
+      }
+    ],
+    "phase_order": [
+      "group_setup",
+      "ca_keygen",
+      "ca_import",
+      "user_prepare",
+      "issue",
+      "completion",
+      "reconstruction",
+      "preimage_validation"
+    ],
+    "phase_contracts": {
+      "group_setup": "Warm provider constructor; Waters exact nonzero beta plus n+1 full scalars, h/U multiplication and validation; Okamoto exact nonzero b, h multiplication and import validation; global exponents/traces not exported.",
+      "ca_keygen": "Fresh full-domain secret sampling, mu, secret/public encoding, complete private trace tuple.",
+      "ca_import": "Decode/validate existing secret, recompute mu/Y, create fixed SHAKE hash, context/challenge guards and fresh service state; distinct from key generation.",
+      "user_prepare": "Fresh full-domain user sampling, mu, canonical request and secret encoding, complete private traces.",
+      "issue": "Canonical wire request/member validation before random bits; full nonce sampling/traces, KC/R/C, fixed SHAKE hash, response, issued/private state and encoded outputs.",
+      "completion": "Certificate parse/member validation; decode both user/response secrets (including Waters relation); fixed H, secret operations and canonical secret output.",
+      "reconstruction": "Certificate parse/member validation, fixed H, public operations AND canonical public output encoding.",
+      "preimage_validation": "fresh=False; full internal reconstruction, secret decode/member validation, mu, canonical equality; does not reuse the separately reconstructed public value."
+    },
+    "default_identity": {
+      "bits": 128,
+      "hex": "30313233343536373839616263646566"
+    },
+    "lambda": 128,
+    "challenge_range": "1..2^lambda inclusive; 2^lambda < q",
+    "hash": {
+      "algorithm": "existing w3_reference.FixedHash SHAKE256",
+      "byte_domain_hex": "57332d48636572742d763100",
+      "bit_domain_hex": "57332d48636572742d626974732d763100",
+      "rule": "first lambda output bits as integer, plus 1; complete C bytes; no hash cache",
+      "model": "fixed deterministic H; concrete tests are not ROM security"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "implementation": "CPython",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "executable": "[local interpreter path omitted]",
+      "providers": {
+        "py-ecc": "8.0.0",
+        "ecdsa": "0.19.1"
+      }
+    },
+    "sources": {
+      "comparison_harness.py": {
+        "path": "comparison_harness.py",
+        "sha256": "c0c4df12afae8ba1cc6d097be4306fab0862cbab98fe3f76e24ebabc5be77e4a"
+      },
+      "w3_reference.py": {
+        "path": "w3_reference.py",
+        "sha256": "e623b2af8e08c8093aa127e1e79dbb6422c4a12e3e5892dc8cd34bee986e1a79"
+      },
+      "scalar_reference.py": {
+        "path": "scalar_reference.py",
+        "sha256": "902752491e1c2ee1fa76d2ac3e50766cf6974583792d0bed72747881ff477888"
+      },
+      "okamoto_reference.py": {
+        "path": "okamoto_reference.py",
+        "sha256": "dc172e597179ae5588a19bc978f3a51451ed00ef4dd35ae265363b74e801d016"
+      },
+      "py_ecc_package": {
+        "path": "vendor/py_ecc/__init__.py",
+        "sha256": "d3358f9fabe08a3d8a4df3fe57c3cca32e6cb5d729d90848d128518086bfecec"
+      },
+      "ecdsa_package": {
+        "path": "vendor/ecdsa/__init__.py",
+        "sha256": "c11527537834d4c33e98b35e9a7a2ffbff01f350e56d2aeaa05b4e3b86d9cd04"
+      },
+      "ecdsa_ellipticcurve": {
+        "path": "vendor/ecdsa/ellipticcurve.py",
+        "sha256": "3a1a3126c249ffb0e9e5ed7401b943fee8bd528d96c68cd16f2dfb831a9cb8e9"
+      },
+      "py_ecc_optimized_curve": {
+        "path": "vendor/py_ecc/optimized_bls12_381/optimized_curve.py",
+        "sha256": "f66da497e4efa555ce4b4364a06a154ff2038ed6c227b702b109fba298c1ad8e"
+      },
+      "py_ecc_optimized_pairing": {
+        "path": "vendor/py_ecc/optimized_bls12_381/optimized_pairing.py",
+        "sha256": "0763415a7de64375dccfa62156d06505923ac6f8f3e1abab87126018d95abef9"
+      }
+    },
+    "scope": {
+      "provider_imports": "already imported/warm; excluded from every phase; no cold-start claim",
+      "setup_reuse": "one explicit setup per session/configuration; reused by its trials; independent sessions by default per mode",
+      "freshness": "fresh CA/user/nonce and fresh service per trial; verify_preimage fresh=False",
+      "source_initialization": "bits_factory(context) is inside the consuming setup/keygen/user/issue phase",
+      "cache_policy": "no harness application hash/point-validation/pairing cache or cross-certificate precomputation; interpreter/provider warm and their intrinsic behavior retained",
+      "trace_policy": "complete immutable CA/user/nonce traces retained privately; summaries/trace exports/JSON/source hashing outside phase calls; no global setup trace or exponent export",
+      "diagnostics": "cheap result-shape checks and success classification occur outside phase callables, without duplicate secret decoding or group operations",
+      "legacy_guard": "PS/Waters use a harness-local exact-int/range guard around unchanged FixedHash/core; legacy source modules are not modified",
+      "Waters_setup": "n=8; h plus nine U points included even though no signatures are executed; certificate id is separately 128 bits",
+      "Okamoto_setup": "fresh nonzero b and H=bG1, including public-import validation; empty aux; public provider also exposes G2/GT/pairing",
+      "runner_contract": "exactly one callable invocation and unchanged returned object; failure retained; no rollback or adversarial runner isolation",
+      "failure_policy": "retain phase/error and skipped successors; no silent sample deletion; repeated setup/trial IDs rejected",
+      "accounting": "keygen and import both compute Y; separately report actual costs. Recon and full preimage validation are alternative verifier workflows; never add recon twice",
+      "pp_encoding": "public metadata only; no complete serialized pp wire-size claim",
+      "GQ": "static source-separated comparison only; no execution",
+      "signatures": "not executed; no composed-signature security claim",
+      "clock": "outer perf_counter_ns; no bit-time guarantee",
+      "control_override": "P256 instance factory only; full original trial methods and codecs inherited"
+    }
+  },
+  "benchmark_source_sha256": "4630eff77b7c66e8e0b29a4a0e56bcded6ae8e43beb726ee0e3d5665f5424e86",
+  "interpretation": [
+    "single host/process serial observations",
+    "not equal-security ranking",
+    "not native W2 replay or historical R7 reproduction",
+    "no bit-time/worst-case/constant-time guarantee",
+    "no signatures or GQ execution",
+    "fixed concrete hash, not ROM instantiation"
+  ],
+  "representation_policy": {
+    "implementation_id": "P256-Jacobian-Z1-variable-no-precompute-v1",
+    "external_validation": "unchanged full superclass pub_decode/parse/secret/hash guards",
+    "decoder": "validated affine Point -> PointJacobi.from_affine(generator=False), Z=1; identity unchanged",
+    "mu_output": "fixed-base multiplication -> scale to Z=1 -> fresh generator=False clone; zero stays INFINITY",
+    "variable_multiplication": "reconstruction R and CA Y both Jacobian Z=1, no variable-base precompute table",
+    "other_intermediates": "add/action outputs may have Z!=1; existing encoder and provider arithmetic retained",
+    "fixed_generator": "same NIST256p.generator for both modes; provider intrinsic precomputation warms in warmup; no resets per trial",
+    "conversion_timing": "decoder lift inside each consuming parse phase; mu normalization/clone inside each mu-producing phase; no subtraction",
+    "standalone_conversion_latency": "not separately timed; do not infer it by subtracting old and new phase medians",
+    "count_scope": "normal successful nonidentity trial; each D one affine->Jacobian object lift; each N one scale+clone, at most one field inversion",
+    "conversion_operations_by_phase": {
+      "group_setup": {
+        "D": 0,
+        "N": 0
+      },
+      "ca_keygen": {
+        "D": 0,
+        "N": 1
+      },
+      "ca_import": {
+        "D": 0,
+        "N": 1
+      },
+      "user_prepare": {
+        "D": 0,
+        "N": 1
+      },
+      "issue": {
+        "D": 1,
+        "N": 1
+      },
+      "completion": {
+        "D": 1,
+        "N": 0
+      },
+      "reconstruction": {
+        "D": 1,
+        "N": 0
+      },
+      "preimage_validation": {
+        "D": 1,
+        "N": 1
+      }
+    },
+    "limits": "normalization shifts/removes later inversion work; joint representation policy control, not an isolated one-instruction causal experiment"
+  },
+  "baseline": {
+    "path": "comparison_benchmark_20261024_run01",
+    "raw_sha256": "64592571f29d9fe3f997ff03cbaacef872fadd2ee3899695104ae2957ddeee43",
+    "comparison": "separate runs, independent coins/time/order environment; never pooled or paired"
+  },
+  "control_sources": {
+    "p256_rep_control.py": {
+      "path": "p256_rep_control.py",
+      "sha256": "60733b454c89f18aeb737a7cbc76a9aba118b12976279dcdd16497a8e5b392ce"
+    },
+    "benchmark_p256_rep_control.py": {
+      "path": "benchmark_p256_rep_control.py",
+      "sha256": "4630eff77b7c66e8e0b29a4a0e56bcded6ae8e43beb726ee0e3d5665f5424e86"
+    },
+    "benchmark_comparison.py": {
+      "path": "benchmark_comparison.py",
+      "sha256": "fd8d080efa4cb309a75b585357fbf4f084776d7c32aa7a1a39c806148e587471"
+    }
+  },
+  "status": "completed",
+  "started_utc": "2026-10-24T10:40:04.138469+00:00",
+  "finished_utc": "2026-10-24T10:40:07.009998+00:00",
+  "records_saved": 440,
+  "failed_trials": 0
+}

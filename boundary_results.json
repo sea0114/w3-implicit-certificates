@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "actual on-curve G2 nonsubgroup rejected",
+      "status": "PASS",
+      "seconds": 0.08350249996874481
+    },
+    {
+      "name": "RO arbitrary bitstrings and byte aliases",
+      "status": "PASS",
+      "seconds": 0.00010300002759322524
+    },
+    {
+      "name": "zero PS coordinates and Waters Verify-only nonce zero",
+      "status": "PASS",
+      "seconds": 2.287614700035192
+    },
+    {
+      "name": "arbitrary legal request no preimage or PoP input",
+      "status": "PASS",
+      "seconds": 0.3877722000470385
+    },
+    {
+      "name": "constant fixed H correctness in all four configurations",
+      "status": "PASS",
+      "seconds": 6.725506199989468
+    }
+  ],
+  "passed": 5
+}

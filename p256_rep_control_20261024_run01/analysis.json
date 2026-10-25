@@ -1,0 +1,258 @@
+{
+  "task": "W3-COMP-BENCH-analysis",
+  "verdict": "sample completeness and independent descriptive statistics verified",
+  "records": 440,
+  "warmup_records": 40,
+  "formal_records": 400,
+  "failed_records": 0,
+  "failures": [],
+  "independently_checked_populations": 48,
+  "descriptive_mode_ratios": [
+    {
+      "family": "scalar-P256",
+      "phase": "group_setup",
+      "PV_over_ECQV_median": 1.0
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "ca_keygen",
+      "PV_over_ECQV_median": 1.0150060583465375
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "ca_import",
+      "PV_over_ECQV_median": 1.0129648906974544
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "user_prepare",
+      "PV_over_ECQV_median": 0.9979727239218578
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "issue",
+      "PV_over_ECQV_median": 0.9974693400817598
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "completion",
+      "PV_over_ECQV_median": 0.9932177844762623
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "reconstruction",
+      "PV_over_ECQV_median": 0.995747933686876
+    },
+    {
+      "family": "scalar-P256",
+      "phase": "preimage_validation",
+      "PV_over_ECQV_median": 0.99708408608285
+    }
+  ],
+  "split_half_diagnostic": [
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "group_setup",
+      "first_half_median_ns": 1850.0,
+      "second_half_median_ns": 1800.0,
+      "second_over_first": 0.972972972972973
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "ca_keygen",
+      "first_half_median_ns": 555000.0,
+      "second_half_median_ns": 524550.0,
+      "second_over_first": 0.9451351351351351
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "ca_import",
+      "first_half_median_ns": 544700.0,
+      "second_half_median_ns": 512850.0,
+      "second_over_first": 0.9415274463007159
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "user_prepare",
+      "first_half_median_ns": 547350.0,
+      "second_half_median_ns": 537700.0,
+      "second_over_first": 0.9823695989768887
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "issue",
+      "first_half_median_ns": 794350.0,
+      "second_half_median_ns": 750900.0,
+      "second_over_first": 0.9453011896519167
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "completion",
+      "first_half_median_ns": 134350.0,
+      "second_half_median_ns": 128550.0,
+      "second_over_first": 0.9568291775213993
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "reconstruction",
+      "first_half_median_ns": 1070900.0,
+      "second_half_median_ns": 1025700.0,
+      "second_over_first": 0.9577925109720795
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "phase": "preimage_validation",
+      "first_half_median_ns": 1605750.0,
+      "second_half_median_ns": 1547200.0,
+      "second_over_first": 0.963537287871711
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "group_setup",
+      "first_half_median_ns": 1900.0,
+      "second_half_median_ns": 1700.0,
+      "second_over_first": 0.8947368421052632
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "ca_keygen",
+      "first_half_median_ns": 553350.0,
+      "second_half_median_ns": 535250.0,
+      "second_over_first": 0.9672901418631968
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "ca_import",
+      "first_half_median_ns": 545200.0,
+      "second_half_median_ns": 524650.0,
+      "second_over_first": 0.9623074101247249
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "user_prepare",
+      "first_half_median_ns": 551550.0,
+      "second_half_median_ns": 525350.0,
+      "second_over_first": 0.9524975070256549
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "issue",
+      "first_half_median_ns": 784450.0,
+      "second_half_median_ns": 756000.0,
+      "second_over_first": 0.9637325514691822
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "completion",
+      "first_half_median_ns": 133600.0,
+      "second_half_median_ns": 128350.0,
+      "second_over_first": 0.9607035928143712
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "reconstruction",
+      "first_half_median_ns": 1063050.0,
+      "second_half_median_ns": 1021850.0,
+      "second_over_first": 0.9612435915526081
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "phase": "preimage_validation",
+      "first_half_median_ns": 1601150.0,
+      "second_half_median_ns": 1546700.0,
+      "second_over_first": 0.9659931923929675
+    }
+  ],
+  "workflow_phase_sums": [
+    {
+      "config_id": "scalar-P256-ECQV",
+      "path": "fresh_service_plus_certificate_reconstruction",
+      "included_phases": [
+        "ca_keygen",
+        "ca_import",
+        "user_prepare",
+        "issue",
+        "completion",
+        "reconstruction"
+      ],
+      "excluded": "setup, other verifier path, diagnostics/logging/control overhead",
+      "statistics": {
+        "n": 200,
+        "mean_ns": 3567598.5,
+        "sample_sd_ns": 113724.34250476326,
+        "median_ns": 3557700.0,
+        "min_ns": 3334200,
+        "max_ns": 3995800,
+        "p95_ns": 3755945.0
+      }
+    },
+    {
+      "config_id": "scalar-P256-ECQV",
+      "path": "fresh_service_plus_certificate_preimage_validation",
+      "included_phases": [
+        "ca_keygen",
+        "ca_import",
+        "user_prepare",
+        "issue",
+        "completion",
+        "preimage_validation"
+      ],
+      "excluded": "setup, other verifier path, diagnostics/logging/control overhead",
+      "statistics": {
+        "n": 200,
+        "mean_ns": 4094781.5,
+        "sample_sd_ns": 120456.65834835474,
+        "median_ns": 4087200.0,
+        "min_ns": 3822400,
+        "max_ns": 4493000,
+        "p95_ns": 4279985.0
+      }
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "path": "fresh_service_plus_certificate_reconstruction",
+      "included_phases": [
+        "ca_keygen",
+        "ca_import",
+        "user_prepare",
+        "issue",
+        "completion",
+        "reconstruction"
+      ],
+      "excluded": "setup, other verifier path, diagnostics/logging/control overhead",
+      "statistics": {
+        "n": 200,
+        "mean_ns": 3565151.0,
+        "sample_sd_ns": 107593.07201081126,
+        "median_ns": 3560900.0,
+        "min_ns": 3301400,
+        "max_ns": 4036300,
+        "p95_ns": 3724395.0
+      }
+    },
+    {
+      "config_id": "scalar-P256-PV",
+      "path": "fresh_service_plus_certificate_preimage_validation",
+      "included_phases": [
+        "ca_keygen",
+        "ca_import",
+        "user_prepare",
+        "issue",
+        "completion",
+        "preimage_validation"
+      ],
+      "excluded": "setup, other verifier path, diagnostics/logging/control overhead",
+      "statistics": {
+        "n": 200,
+        "mean_ns": 4096859.0,
+        "sample_sd_ns": 119340.76550178805,
+        "median_ns": 4091050.0,
+        "min_ns": 3808000,
+        "max_ns": 4585200,
+        "p95_ns": 4271470.0
+      }
+    }
+  ],
+  "inference_limit": "No significance, causal heat attribution or equal-security superiority claim; split halves are diagnostics only.",
+  "raw_sha256": "858563dc3814816a36febc77491f5a7f9a3008a49685fc679baf37cf07d81cd1"
+}

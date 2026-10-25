@@ -1,0 +1,201 @@
+{
+  "task": "W3-SC-IMPL",
+  "python": "3.12.14",
+  "packages": [
+    {
+      "name": "ecdsa",
+      "version": "0.19.1"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0"
+    },
+    {
+      "name": "py-ecc",
+      "version": "8.0.0",
+      "source": "existing vendor; original dependency_lock.json preserved"
+    }
+  ],
+  "new_wheels": [
+    {
+      "wheel": "[external local path omitted]/ecdsa-0.19.1-py2.py3-none-any.whl",
+      "sha256": "30638e27cf77b7e15c4c4cc1973720149e1033827cfd00661ca5c8cc0cdb24c3",
+      "origin": "PyPI pinned binary wheel via pip download; cache reused",
+      "files": [
+        {
+          "path": "vendor\\ecdsa\\__init__.py",
+          "sha256": "c11527537834d4c33e98b35e9a7a2ffbff01f350e56d2aeaa05b4e3b86d9cd04"
+        },
+        {
+          "path": "vendor\\ecdsa\\_compat.py",
+          "sha256": "e443fbdf90e599a49bf12964e0132787d67b32f6294e7192dd2fc30661c44f0a"
+        },
+        {
+          "path": "vendor\\ecdsa\\_rwlock.py",
+          "sha256": "080c07a7657ae64b08f01d54a98ec471c2bd2da513a22bfaa432d5ce6e3879a8"
+        },
+        {
+          "path": "vendor\\ecdsa\\_sha3.py",
+          "sha256": "0c9b3b40b99d910314df9965c83f0741e01736f7f9b0c72e8ceea815d49c22a2"
+        },
+        {
+          "path": "vendor\\ecdsa\\_version.py",
+          "sha256": "e90eb0d3b481e742d6c43c3bfd4e0abe37c54902e2019587bd84ff8837a162ac"
+        },
+        {
+          "path": "vendor\\ecdsa\\curves.py",
+          "sha256": "11c3c4d16445923a4f3197d5334fa1450eb709d5b918a4e40d1a4af953b2d59a"
+        },
+        {
+          "path": "vendor\\ecdsa\\der.py",
+          "sha256": "c177fc7ed1c92dd259d8c8e9423793e638bfa938f4e5d26da82b2f9b08ef6eea"
+        },
+        {
+          "path": "vendor\\ecdsa\\ecdh.py",
+          "sha256": "4e28ab6b0b79c5e8150eb63d792f804efbdf9932339d4cafe5fcb693b567cd39"
+        },
+        {
+          "path": "vendor\\ecdsa\\ecdsa.py",
+          "sha256": "f36102caf7b7eab2f8ff2f1993c8cf07e5326faecfa71e8261da887859e2bfbc"
+        },
+        {
+          "path": "vendor\\ecdsa\\eddsa.py",
+          "sha256": "233b06ce818079f72862317b0d58c5917e5926a88ad8b4ce98031eeb0c9fe145"
+        },
+        {
+          "path": "vendor\\ecdsa\\ellipticcurve.py",
+          "sha256": "3a1a3126c249ffb0e9e5ed7401b943fee8bd528d96c68cd16f2dfb831a9cb8e9"
+        },
+        {
+          "path": "vendor\\ecdsa\\errors.py",
+          "sha256": "6f89a19e622946711d1f36de72d1c003917b3bd32d49a23e7d8a1cd77fef0714"
+        },
+        {
+          "path": "vendor\\ecdsa\\keys.py",
+          "sha256": "164a6e6cbf4c1827e4089e9a56f5797346ef7b866e06d5373f57514414ed8749"
+        },
+        {
+          "path": "vendor\\ecdsa\\numbertheory.py",
+          "sha256": "01ddbe99515a3b2b4ca26042fbb7747096a8e2da6454b878c7bbf2aa3ef71ba0"
+        },
+        {
+          "path": "vendor\\ecdsa\\rfc6979.py",
+          "sha256": "cf0ce8df796c64903daf67527fb1c296223fc886f0e5c274124f6d2dd4513b8d"
+        },
+        {
+          "path": "vendor\\ecdsa\\ssh.py",
+          "sha256": "dfad0963475b61e65aab1f64fce8651f33d96194f0e54079c6d2b65cb06a6f43"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_curves.py",
+          "sha256": "97937e9b8628e48032e1af1a24cb016a669294b01f4a862362a0a3d470c45695"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_der.py",
+          "sha256": "06a6eedd08844b297c5fd6e3476201cc35b7e5f0c74d507e9a1ce4e6a5e01904"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_ecdh.py",
+          "sha256": "db44c463219c9f29c03d2f6796bfe4d9e77a4bb949d59d1b6e884d53ea4419ca"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_ecdsa.py",
+          "sha256": "57943843bb9415f4ad55d785b70857569165162d0dc79279babbbd4f78ffdc34"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_eddsa.py",
+          "sha256": "d637c717f652ca2965bfa0cb28967449e61385ab93087b3244d030792ff83044"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_ellipticcurve.py",
+          "sha256": "9af2010ff28aace63856977829c47727c44207120d26da9696cd56304b058271"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_jacobi.py",
+          "sha256": "495ad2fbe3d2c036a40988addb5ea4866cc5f1e42bc96b62237b1859dffaf3dd"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_keys.py",
+          "sha256": "ade4362ad7ceb0035ae7d0aabef4568d99be49a59fb1c259549684f511722fde"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_malformed_sigs.py",
+          "sha256": "0e0d4392f833d6d3be2a167a7fd651963ca4cfc14162d95dde1ab55b684b2ccf"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_numbertheory.py",
+          "sha256": "613b5c96dff9d27ff6e14fffaf62725772c4a91d81b01980e88260870043cfc7"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_pyecdsa.py",
+          "sha256": "db3a167d1ff102a6a028e147549b7875365969cbb5cd3e09c571ff1c9500056f"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_rw_lock.py",
+          "sha256": "6f2bf4fc54ccf7471bb873c223afff2de4099072ffcd811e5582013bc7b62cb7"
+        },
+        {
+          "path": "vendor\\ecdsa\\test_sha3.py",
+          "sha256": "d0f9168bb0274c9d7460d7c356a8f6481eda75e4db57a0c2bcc8389fd50b69df"
+        },
+        {
+          "path": "vendor\\ecdsa\\util.py",
+          "sha256": "522c571fa3d1f69a0cad6409f77acaa54495647c4fd4098bc2592b908dc55851"
+        },
+        {
+          "path": "vendor\\ecdsa-0.19.1.dist-info\\LICENSE",
+          "sha256": "3eca9845773d2e5b8cc9d8c119d345f00a4806e4bd660d4a3d6cdf9c0e9d8bb2"
+        },
+        {
+          "path": "vendor\\ecdsa-0.19.1.dist-info\\METADATA",
+          "sha256": "a6060079764059a4a5667bf1e9980ae91a5001b828ee7851ba9b52b784fbd616"
+        },
+        {
+          "path": "vendor\\ecdsa-0.19.1.dist-info\\WHEEL",
+          "sha256": "89896fe5f5f7e7b3d0c914f6a3ab70d5b37e61c2851472aa07f2f01cee703fe8"
+        },
+        {
+          "path": "vendor\\ecdsa-0.19.1.dist-info\\top_level.txt",
+          "sha256": "ee8bcf1df00fc93a2ed7d7fc80e49b1e6e81f5d1a34e26d6a2570207b663a2fb"
+        },
+        {
+          "path": "vendor\\ecdsa-0.19.1.dist-info\\RECORD",
+          "sha256": "aa0b04d77730f020ee9ea8a3d324d92a38d6fd1b117ffbb5229f854b24283d83"
+        }
+      ]
+    },
+    {
+      "wheel": "[external local path omitted]/six-1.17.0-py2.py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "origin": "PyPI pinned binary wheel via pip download; cache reused",
+      "files": [
+        {
+          "path": "vendor\\six.py",
+          "sha256": "c51c91f703d3d4b3696c923cb5fec213e05e75d9215393befac7f2fa6a3904df"
+        },
+        {
+          "path": "vendor\\six-1.17.0.dist-info\\LICENSE",
+          "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0"
+        },
+        {
+          "path": "vendor\\six-1.17.0.dist-info\\METADATA",
+          "sha256": "562042078c2752549f6d8a7c86dbc5dd708088a7be6d80672ec7b07100b72468"
+        },
+        {
+          "path": "vendor\\six-1.17.0.dist-info\\WHEEL",
+          "sha256": "a7178d5f925db427b9f0f51260ff6ea6673b8dd44f82f4f41a6f646f5487955c"
+        },
+        {
+          "path": "vendor\\six-1.17.0.dist-info\\top_level.txt",
+          "sha256": "fe2547fe2604b445e70fc9d819062960552f9145bdb043b51986e478a4806a2b"
+        },
+        {
+          "path": "vendor\\six-1.17.0.dist-info\\RECORD",
+          "sha256": "5067d83422e8d7118fdca18230fc735d9f9afabf72647606bacc7a70d5f6901d"
+        }
+      ]
+    }
+  ],
+  "legacy_dependencies": "dependency_lock.json",
+  "system_packages_modified": false
+}

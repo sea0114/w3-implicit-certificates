@@ -1,0 +1,65 @@
+{
+  "task": "W3-SC-IMPL",
+  "profiles": [
+    {
+      "profile": "P256",
+      "provider": "ecdsa",
+      "provider_version": "0.19.1",
+      "q_hex": "0xffffffff00000000ffffffffffffffffbce6faada7179e84f3b9cac2fc632551",
+      "scalar_proposal_width_bits": 256,
+      "scalar_width_bytes": 32,
+      "generator_hex": "036b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296",
+      "identity_hex": "00",
+      "generator_bytes": 33,
+      "identity_bytes": 1,
+      "scalar_zero_valid": true,
+      "point_identity_valid": true,
+      "modes": [
+        "ECQV",
+        "PV"
+      ],
+      "default_challenge_entropy_bits": 128,
+      "default_challenge_domain": "[1,2^128]"
+    },
+    {
+      "profile": "BLSG1",
+      "provider": "py-ecc",
+      "provider_version": "8.0.0",
+      "q_hex": "0x73eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001",
+      "scalar_proposal_width_bits": 255,
+      "scalar_width_bytes": 32,
+      "generator_hex": "97f1d3a73197d7942695638c4fa9ac0fc3688c4f9774b905a14e3a3f171bac586c55e83ff97a1aeffb3af00adb22c6bb",
+      "identity_hex": "c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "generator_bytes": 48,
+      "identity_bytes": 48,
+      "scalar_zero_valid": true,
+      "point_identity_valid": true,
+      "modes": [
+        "ECQV",
+        "PV"
+      ],
+      "default_challenge_entropy_bits": 128,
+      "default_challenge_domain": "[1,2^128]"
+    }
+  ],
+  "frame": {
+    "prefix": "W3SC",
+    "version": 1,
+    "certificate_role": "CR",
+    "request_role": "QK",
+    "length_field": "actual point bytes LP",
+    "nat": "minimal unsigned base-128, low 7-bit digit first",
+    "integers": "unsigned big-endian",
+    "id": "explicit bit-length, high-bit-first, zero low padding",
+    "context": "profile/CA/mode supplied externally, not carried by frame"
+  },
+  "scope": {
+    "finite_reference_only": true,
+    "full_pp_wire_specified": false,
+    "uniform_BGen_implemented": false,
+    "same_code_bit_time_clock_implemented": false,
+    "production_isolation": false,
+    "signature_composition": false,
+    "benchmark_run": false
+  }
+}

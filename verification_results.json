@@ -1,0 +1,174 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "provider": "8.0.0",
+  "tests": [
+    {
+      "name": "G1 canonical roundtrip 0",
+      "status": "PASS",
+      "seconds": 0.008792900014668703
+    },
+    {
+      "name": "G1 canonical roundtrip 1",
+      "status": "PASS",
+      "seconds": 0.003414299979340285
+    },
+    {
+      "name": "G1 reject wrong length",
+      "status": "PASS",
+      "seconds": 1.1399970389902592e-05
+    },
+    {
+      "name": "G1 reject infinity sign flag",
+      "status": "PASS",
+      "seconds": 9.700015652924776e-06
+    },
+    {
+      "name": "G2 canonical roundtrip 0",
+      "status": "PASS",
+      "seconds": 0.04133769997861236
+    },
+    {
+      "name": "G2 canonical roundtrip 1",
+      "status": "PASS",
+      "seconds": 0.015470199985429645
+    },
+    {
+      "name": "G2 reject wrong length",
+      "status": "PASS",
+      "seconds": 8.600007276982069e-06
+    },
+    {
+      "name": "G2 reject infinity sign flag",
+      "status": "PASS",
+      "seconds": 1.1200027074664831e-05
+    },
+    {
+      "name": "scalar q rejected not reduced",
+      "status": "PASS",
+      "seconds": 5.999987479299307e-06
+    },
+    {
+      "name": "scalar zero retained",
+      "status": "PASS",
+      "seconds": 3.1999661587178707e-06
+    },
+    {
+      "name": "actual on-curve G1 nonsubgroup rejected",
+      "status": "PASS",
+      "seconds": 0.008477600000333041
+    },
+    {
+      "name": "Waters mixed identity rejected",
+      "status": "PASS",
+      "seconds": 0.5380246000131592
+    },
+    {
+      "name": "Waters relation mismatch rejected",
+      "status": "PASS",
+      "seconds": 1.0353148999856785
+    },
+    {
+      "name": "Waters full identity accepted",
+      "status": "PASS",
+      "seconds": 0.0174737999914214
+    },
+    {
+      "name": "reject nonminimal Nat",
+      "status": "PASS",
+      "seconds": 1.810002140700817e-05
+    },
+    {
+      "name": "reject unterminated Nat",
+      "status": "PASS",
+      "seconds": 1.800013706088066e-06
+    },
+    {
+      "name": "reject nonzero id padding",
+      "status": "PASS",
+      "seconds": 7.099995855242014e-06
+    },
+    {
+      "name": "PS trailing bytes rejected",
+      "status": "PASS",
+      "seconds": 0.04041620000498369
+    },
+    {
+      "name": "PS invalid request before RNG/H",
+      "status": "PASS",
+      "seconds": 4.4300046283751726e-05
+    },
+    {
+      "name": "PS real collision and final no-query lookup",
+      "status": "PASS",
+      "seconds": 0.09875000000465661
+    },
+    {
+      "name": "PS ECQV certificate and signature correctness",
+      "status": "PASS",
+      "seconds": 1.9135578999994323
+    },
+    {
+      "name": "PS PV certificate and signature correctness",
+      "status": "PASS",
+      "seconds": 1.9569638000102714
+    },
+    {
+      "name": "Waters trailing bytes rejected",
+      "status": "PASS",
+      "seconds": 0.015379499993287027
+    },
+    {
+      "name": "Waters invalid request before RNG/H",
+      "status": "PASS",
+      "seconds": 0.01758360001258552
+    },
+    {
+      "name": "Waters real collision and final no-query lookup",
+      "status": "PASS",
+      "seconds": 0.0831130999722518
+    },
+    {
+      "name": "Waters ECQV certificate and signature correctness",
+      "status": "PASS",
+      "seconds": 8.78925769997295
+    },
+    {
+      "name": "Waters PV certificate and signature correctness",
+      "status": "PASS",
+      "seconds": 8.162139799969736
+    },
+    {
+      "name": "all rejected and accepted blocks retained",
+      "status": "PASS",
+      "seconds": 1.5099998563528061e-05
+    },
+    {
+      "name": "cap last permitted proposal accepted",
+      "status": "PASS",
+      "seconds": 3.5999692045152187e-06
+    },
+    {
+      "name": "cap exhausted aborts",
+      "status": "PASS",
+      "seconds": 6.599992047995329e-06
+    },
+    {
+      "name": "nonzero operation sampler rejects zero",
+      "status": "PASS",
+      "seconds": 2.400018274784088e-06
+    },
+    {
+      "name": "exhaustive fixed-c noninjective joint laws and stopped TV",
+      "status": "PASS",
+      "seconds": 0.0002443999983370304
+    },
+    {
+      "name": "programmed entries versus ordinary indices",
+      "status": "PASS",
+      "seconds": 1.2299977242946625e-05
+    }
+  ],
+  "passed": 33,
+  "scope": "research diagnostics; not a security proof; no full game/fork harness"
+}

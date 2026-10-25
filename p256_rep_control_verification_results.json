@@ -1,0 +1,231 @@
+{
+  "task": "W3-P256-REP-CONTROL-acceptance",
+  "checks": [
+    {
+      "id": "ECQV/equivalence",
+      "status": "PASS",
+      "evidence": {
+        "paired_functional_fixtures": 18,
+        "equal_full_transcript_and_traces": true,
+        "includes": "zero, one, q-1, R identity, fixed SHAKE, challenge endpoints; synthetic, untimed"
+      }
+    },
+    {
+      "id": "ECQV/representation",
+      "status": "PASS",
+      "evidence": {
+        "mu_one_detached_from_generator": true,
+        "variable_precompute_disabled": true,
+        "identity_retained": true,
+        "CA_and_decoded_Z1": true
+      }
+    },
+    {
+      "id": "ECQV/trace",
+      "status": "PASS",
+      "evidence": {
+        "three_roles": "all rejected blocks plus accepted zero retained",
+        "cap": null
+      }
+    },
+    {
+      "id": "ECQV/wire",
+      "status": "PASS",
+      "evidence": {
+        "invalid_point_cases": 8,
+        "invalid_frame_cases": 7,
+        "pre_nonce_pre_hash_rejection": true,
+        "non_byte_identity_frame": true
+      }
+    },
+    {
+      "id": "ECQV/domain",
+      "status": "PASS",
+      "evidence": {
+        "full_scalar_domain": true,
+        "malformed_secret_and_hash_guards": true,
+        "wrong_preimage_rejected": true
+      }
+    },
+    {
+      "id": "ECQV/conversion_counts",
+      "status": "PASS",
+      "evidence": {
+        "actual_nonidentity_functional_counts": {
+          "group_setup": {
+            "D": 0,
+            "N": 0
+          },
+          "ca_keygen": {
+            "D": 0,
+            "N": 1
+          },
+          "ca_import": {
+            "D": 0,
+            "N": 1
+          },
+          "user_prepare": {
+            "D": 0,
+            "N": 1
+          },
+          "issue": {
+            "D": 1,
+            "N": 1
+          },
+          "completion": {
+            "D": 1,
+            "N": 0
+          },
+          "reconstruction": {
+            "D": 1,
+            "N": 0
+          },
+          "preimage_validation": {
+            "D": 1,
+            "N": 1
+          }
+        },
+        "instrumentation": "test-only, absent from timed adapter"
+      }
+    },
+    {
+      "id": "ECQV/integration",
+      "status": "PASS",
+      "evidence": {
+        "all_eight_phases": true,
+        "timings": "fake only",
+        "no_other_configuration": true
+      }
+    },
+    {
+      "id": "ECQV/failure",
+      "status": "PASS",
+      "evidence": {
+        "failed_time_retained": true,
+        "three_successors_skipped": true,
+        "reuse_rejected": true
+      }
+    },
+    {
+      "id": "PV/equivalence",
+      "status": "PASS",
+      "evidence": {
+        "paired_functional_fixtures": 18,
+        "equal_full_transcript_and_traces": true,
+        "includes": "zero, one, q-1, R identity, fixed SHAKE, challenge endpoints; synthetic, untimed"
+      }
+    },
+    {
+      "id": "PV/representation",
+      "status": "PASS",
+      "evidence": {
+        "mu_one_detached_from_generator": true,
+        "variable_precompute_disabled": true,
+        "identity_retained": true,
+        "CA_and_decoded_Z1": true
+      }
+    },
+    {
+      "id": "PV/trace",
+      "status": "PASS",
+      "evidence": {
+        "three_roles": "all rejected blocks plus accepted zero retained",
+        "cap": null
+      }
+    },
+    {
+      "id": "PV/wire",
+      "status": "PASS",
+      "evidence": {
+        "invalid_point_cases": 8,
+        "invalid_frame_cases": 7,
+        "pre_nonce_pre_hash_rejection": true,
+        "non_byte_identity_frame": true
+      }
+    },
+    {
+      "id": "PV/domain",
+      "status": "PASS",
+      "evidence": {
+        "full_scalar_domain": true,
+        "malformed_secret_and_hash_guards": true,
+        "wrong_preimage_rejected": true
+      }
+    },
+    {
+      "id": "PV/conversion_counts",
+      "status": "PASS",
+      "evidence": {
+        "actual_nonidentity_functional_counts": {
+          "group_setup": {
+            "D": 0,
+            "N": 0
+          },
+          "ca_keygen": {
+            "D": 0,
+            "N": 1
+          },
+          "ca_import": {
+            "D": 0,
+            "N": 1
+          },
+          "user_prepare": {
+            "D": 0,
+            "N": 1
+          },
+          "issue": {
+            "D": 1,
+            "N": 1
+          },
+          "completion": {
+            "D": 1,
+            "N": 0
+          },
+          "reconstruction": {
+            "D": 1,
+            "N": 0
+          },
+          "preimage_validation": {
+            "D": 1,
+            "N": 1
+          }
+        },
+        "instrumentation": "test-only, absent from timed adapter"
+      }
+    },
+    {
+      "id": "PV/integration",
+      "status": "PASS",
+      "evidence": {
+        "all_eight_phases": true,
+        "timings": "fake only",
+        "no_other_configuration": true
+      }
+    },
+    {
+      "id": "PV/failure",
+      "status": "PASS",
+      "evidence": {
+        "failed_time_retained": true,
+        "three_successors_skipped": true,
+        "reuse_rejected": true
+      }
+    },
+    {
+      "id": "schedule_and_scope",
+      "status": "PASS",
+      "evidence": {
+        "only_two_configs": true,
+        "records": 440,
+        "formal_position_balance": 100,
+        "no_overwrite": true
+      }
+    }
+  ],
+  "total": 17,
+  "passed": 17,
+  "failed": 0,
+  "formal_measurement": false,
+  "old_full_suites_executed": false,
+  "other_configuration_trials": 0
+}
